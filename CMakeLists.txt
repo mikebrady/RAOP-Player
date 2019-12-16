@@ -2,6 +2,9 @@ cmake_minimum_required (VERSION 3.5)
 project (raop_play)
 
 find_package(OpenSSL REQUIRED)
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+find_package(Threads REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR}/vendor/alac/codec)
 include_directories(${CMAKE_SOURCE_DIR}/vendor/curve25519/source)
@@ -21,4 +24,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-multichar -pthread")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-multichar -pthread")
 
 add_executable(${PROJECT_NAME} ${PROGSRC} ${CURVESRC} ${ALACSRC} src/raop_play.c)
-target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto pthread)
+target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto Threads::Threads)
