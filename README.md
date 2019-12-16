@@ -5,7 +5,7 @@ RAOP player and library (AirPlay)
 This is a RAOP (airplay) player and library for the v2 protocol (with synchro). It works for Windows, OSX, Linux x86 and ARM.
 There is a small player can can play raw pcm form any file or stdin (useful for use pipes with a decoder like lame, flac or ffmpeg)
 
-The player is just and example how to use the library, but it has a few interesting options:
+The player is simply an example of how to use the library, but it has a few interesting options:
 
 ```text
 usage: ./build/raop_play <options> <server_ip> <filename ('-' for stdin)>
